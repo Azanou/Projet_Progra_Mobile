@@ -1,10 +1,7 @@
 # Projet_Progra_Mobile
-### notre objectif est de creer une application qui respecte les specifications telles qu'enumerees dans le document de TP qui 
-### a ete mis a notre disposition.
+### notre objectif est de creer une application qui respecte les specifications telles qu'enumerees dans le document de TP qui a ete mis a notre disposition.
 
-### Nous tavaillerons en assignant des taches (Issue dans le jargon de Github) a chaques membres du groupe,  qui une fois realisees
-### seront simplement fusionnees au code principale du projet. Pour l'heure, il contient juste certaines classes et fichiers 
-### principaux , selon l'arborescence qui suit:
+### Nous tavaillerons en assignant des taches (Issue dans le jargon de Github) a chaques membres du groupe,  qui une fois realisees seront simplement fusionnees au code principale du projet. Pour l'heure, il contient juste certaines classes et fichiers principaux , selon l'arborescence qui suit:
 
 |-- 📁 app/  
 |   |-- 📁 manifests/  
