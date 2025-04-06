@@ -1,7 +1,7 @@
 package com.example.nomdesmembresdugroupe.data;
 
 public class Product {
-    public class Product {
+
         private int image;
         private String nomImage;
         private String description;
@@ -45,6 +45,5 @@ public class Product {
                 this.quantite--;
             }
         }
-    }
 }
 
