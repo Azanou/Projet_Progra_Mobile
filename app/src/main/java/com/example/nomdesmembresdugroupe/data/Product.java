@@ -1,13 +1,50 @@
 package com.example.nomdesmembresdugroupe.data;
 
 public class Product {
-    //C'est ici qu'on definit les caracteristiques d'un produit : nom: String , image:int, quantites: int,
-    //                                                           description: string, prix: int
+    public class Product {
+        private int image;
+        private String nomImage;
+        private String description;
+        private int quantite;
+        private double prixUnitaire;
 
-    //------Ne pas biensur oublier de definir le constructeur !!!
+        public Product(int image, String nomImage, String description, int quantite, double prixUnitaire) {
+            this.image = image;
+            this.nomImage = nomImage;
+            this.description = description;
+            this.quantite = quantite;
+            this.prixUnitaire = prixUnitaire;
+        }
 
-    //Les methodes setQuantitePlus et setQuantiteLess devrons etre implementees.
-    // --------aide : ces methodes modifierons l'attribus "quantites" uniquement !
+        public int getImage() {
+            return image;
+        }
 
+        public String getNomImage() {
+            return nomImage;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public int getQuantite() {
+            return quantite;
+        }
+
+        public double getPrixUnitaire() {
+            return prixUnitaire;
+        }
+
+        public void setQuantitePlus() {
+            this.quantite++;
+        }
+
+        public void setQuantiteLess() {
+            if (this.quantite > 0) {
+                this.quantite--;
+            }
+        }
+    }
 }
 
