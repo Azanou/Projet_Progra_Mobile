@@ -1,14 +1,33 @@
 package com.example.nomdesmembresdugroupe.data;
 
-public class Product {
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
 
+import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Product implements Serializable {
+
+    @DrawableRes
         private int image;
-        private String nomImage;
-        private String description;
+    @StringRes
+        private int nomImage;
+    @StringRes
+        private int description;
+    @StringRes
         private int quantite;
         private double prixUnitaire;
 
-        public Product(int image, String nomImage, String description, int quantite, double prixUnitaire) {
+
+
+
+
+
+
+
+        public Product(int image, int nomImage, int description, int quantite, double prixUnitaire) {
             this.image = image;
             this.nomImage = nomImage;
             this.description = description;
@@ -19,14 +38,13 @@ public class Product {
         public int getImage() {
             return image;
         }
-
-        public String getNomImage() {
+        @StringRes
+        public int getNomImage() {
             return nomImage;
         }
 
-        public String getDescription() {
-            return description;
-        }
+        @StringRes
+        public int getDescription() { return description; }
 
         public int getQuantite() {
             return quantite;

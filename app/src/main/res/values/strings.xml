@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">NomDesMembresDuGroupe</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</string>
+        <string name="descript">Description: </string>
+        <string name="pu">Prix unitaire: </string>
+        <string name="produit1">Stylo Ergonomique</string>
+        <string name="produit2">Clé USB 128Go</string>
+        <string name="produit3">Sac à dos Voyage</string>
+        <string name="produit4">Casque Sans Fil</string>
+        <string name="produit5">Montre Connectée</string>
+        <string name="produit6">Tasse Isotherme</string>
+        <string name="produit7">Chargeur Sans Fil</string>
+        <string name="produit8">Lampe LED Réglable</string>
+        <string name="produit9">Batterie Externe</string>
+        <string name="produit10">Câble HDMI 4K</string>
+        <string name="produit11">Tablette Graphique</string>
+        <string name="produit12">Support Ordinateur Portable</string>
+        <string name="produit13">Haut-Parleur Bluetooth</string>
+        <string name="produit14">Pochette de Voyage</string>
+        <string name="produit15">Tapis de Souris Gaming</string>
+        <string name="produit16">Clé de Sécurité USB</string>
+        <string name="produit17">Téléphone Portable</string>
+        <string name="produit18">Sac à Main en Cuir</string>
+        <string name="produit19">Kit de Nettoyage pour Écran</string>
+        <string name="produit20">Adaptateur USB-C</string>
+        <string name="produit21">Panneau Solaire Portable</string>
+        <string name="produit22">Station Météo Connectée</string>
+        <string name="produit23">Bureau Ergonomique</string>
+        <string name="produit24">Masque de Réalité Virtuelle</string>
+        <string name="produit25">Chargeur Solaire</string>
+        <string name="produit26">Appareil Photo Instantané</string>
+        <string name="produit27">Kit de Voyage</string>
+        <string name="produit28">Glacière Portable</string>
+        <string name="produit29">Écouteurs Anti-bruit</string>
+        <string name="produit30">Lecteur de Carte SD</string>
 </resources>
