@@ -32,17 +32,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Récupérer la liste des produits
-        Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("Liste_produits")) {
-            ArrayList<Product> products;
-            products = (ArrayList<Product>) intent.getSerializableExtra("Liste_produits");
-
-            //on trouve et on configure le recyclerView dans le layout
-            recyclerView = findViewById(R.id.recyclerView);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            adapter = new ProductAdapter(products);
-            recyclerView.setAdapter(adapter);
-        }
+//        Intent intent = getIntent();
+//        if (intent != null && intent.hasExtra("Liste_produits")) {
+//            ArrayList<Product> products;
+//            products = (ArrayList<Product>) intent.getSerializableExtra("Liste_produits");
+//
+//            //on trouve et on configure le recyclerView dans le layout
+//            recyclerView = findViewById(R.id.recyclerView);
+//            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//            adapter = new ProductAdapter(products);
+//            recyclerView.setAdapter(adapter);
+//        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
