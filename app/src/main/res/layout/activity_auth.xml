@@ -50,7 +50,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
@@ -74,7 +74,7 @@
             tools:ignore="DuplicateIds" />
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/user_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
@@ -197,24 +197,37 @@
             </LinearLayout>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/textError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:layout_gravity="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20dp"/>
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/log_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#4CAF50"
             android:textStyle="bold"
             android:textSize="20dp"
             android:text="Login"
+            android:padding="12dp"
+            android:layout_marginVertical="10dp"
             tools:ignore="DuplicateIds" />
 
+
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/sign_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#03A9F4"
             android:textStyle="bold"
             android:textSize="20dp"
             android:text="Sign up"
+            android:padding="12dp"
             tools:ignore="DuplicateIds" />
 
 

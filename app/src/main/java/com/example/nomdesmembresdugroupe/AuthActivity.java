@@ -38,57 +38,57 @@ public class AuthActivity  extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_auth);
 
-    //    List<Product> produits = ProductData.getProducts();
+        List<Product> produits = ProductData.getProducts();
 
         //on recupere des elements de la vue: Boutons et champs de saisies
 
-//        EditText name = findViewById(R.id.username);
-//        EditText password = findViewById(R.id.password);
-//        Button connection = findViewById(R.id.connection);
-//        Button registering = findViewById(R.id.register);
-//        TextView  errorText = findViewById(R.id.textError);
+        EditText name = findViewById(R.id.user_name);
+        EditText password = findViewById(R.id.user_password);
+        Button connection = findViewById(R.id.log_btn);
+       Button registering = findViewById(R.id.sign_btn);
+        TextView  errorText = findViewById(R.id.textError);
 
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.auth), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.auth), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
         //on verifie si l'utilisateur est inscrit. si oui, il est renvoyer vers la page d'acceuil
 
-//        connection.setOnClickListener(view -> {
-//
-//            String UserPassword = password.getText().toString().trim();
-//            String userName = name.getText().toString().trim();
-//
-//            //  System.out.println(UserPassword);
-//            // System.out.println(userName);
-//            if ( !userName.isEmpty() ){
-//                    if(UserCredentials.USER_CREDENTIALS.containsKey(UserPassword) && !UserPassword.isEmpty()){
-//
-//                    String trueUserName = UserCredentials.USER_CREDENTIALS.get(UserPassword);
-//                    if(userName.equals(trueUserName)) {
-//                        errorText.setVisibility(View.INVISIBLE);
-//                        Intent I = new Intent(AuthActivity.this, MainActivity.class);
-//                        I.putExtra("Liste_produits", new ArrayList<>(produits));
-//                        startActivity(I);
-//                    }
-//                }else{
-//                        errorText.setText("identifiant(s) incorrecte(s)");
-//                        errorText.setVisibility(View.VISIBLE);
-//                    }
-//            }else{
-//                errorText.setText("Veuillez remplir tous les champs");
-//                errorText.setVisibility(View.VISIBLE);
-//            }
-//        });
+       connection.setOnClickListener(view -> {
 
-        //On enregistre un nouvel utilisateur
-//        registering.setOnClickListener(v -> {
-//            Intent I = new Intent(AuthActivity.this, RegisterActivity.class);
-//            startActivity(I);
-//        });
+          String UserPassword = password.getText().toString().trim();
+          String userName = name.getText().toString().trim();
 
+              System.out.println(UserPassword);
+              System.out.println(userName);
+            if ( !userName.isEmpty()  ){
+                    if(UserCredentials.USER_CREDENTIALS.containsKey(UserPassword) && !UserPassword.isEmpty()){
+
+                    String trueUserName = UserCredentials.USER_CREDENTIALS.get(UserPassword);
+                    if(userName.equals(trueUserName)) {
+                        errorText.setVisibility(View.INVISIBLE);
+                        Intent I = new Intent(AuthActivity.this, MainActivity.class);
+                        I.putExtra("Liste_produits", new ArrayList<>(produits));
+                         startActivity(I);
+                    }
+                }else{
+                        errorText.setText("identifiant(s) incorrecte(s)");
+                        errorText.setVisibility(View.VISIBLE);
+                    }
+            }else{
+                errorText.setText("Veuillez remplir tous les champs");
+                errorText.setVisibility(View.VISIBLE);
+            }
+        });
+
+           //On enregistre un nouvel utilisateur
+        registering.setOnClickListener(v -> {
+            Intent I = new Intent(AuthActivity.this, RegisterActivity.class);
+            startActivity(I);
+        });
+
+       }
     }
-}
