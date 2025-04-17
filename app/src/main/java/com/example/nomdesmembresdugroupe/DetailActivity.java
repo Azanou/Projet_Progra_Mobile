@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -113,6 +114,7 @@ public class DetailActivity extends AppCompatActivity {
             badgeTextView.setVisibility(View.GONE);
         } else {
             badgeTextView.setText(String.valueOf(cartItemCount));
+            Toast.makeText(DetailActivity.this, "walla", Toast.LENGTH_SHORT);
             badgeTextView.setVisibility(View.VISIBLE);
         }
     }
