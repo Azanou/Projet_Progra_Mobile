@@ -2,12 +2,14 @@ package com.example.nomdesmembresdugroupe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -93,7 +95,9 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.detail_menu, menu);
+
 
         MenuItem menuItem = menu.findItem(R.id.action_cart);
         View actionView = menuItem.getActionView();
