@@ -1,5 +1,6 @@
 package com.example.nomdesmembresdugroupe.data;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,19 @@ import com.example.nomdesmembresdugroupe.R;
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
-    List<String> categoryTab;
+    List<Integer> categoryTab;
+    private  OnCategoryClickListener listener;
+    private Context context;
 
-    public CategoryAdapter(List<String> cat){
+
+    //interface (on y fera un callback) pour gerer les clics sur les categories
+    public interface OnCategoryClickListener {
+        void onCategoryClick(String categoryName);
+    }
+
+    public CategoryAdapter(List<Integer> cat, OnCategoryClickListener listener){
         this.categoryTab = cat;
+        this.listener = listener;
     }
     public static class MyViewHolder extends ViewHolder{
 
@@ -38,8 +48,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.MyViewHolder holder, int position) {
-        String category = this.categoryTab.get(position);
-        holder.category.setText(category.toString());
+        int category = this.categoryTab.get(position);
+        String categoryText = holder.itemView.getContext().getString(category);
+
+        holder.category.setText(category);
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onCategoryClick(categoryText); // ← ici on envoie le texte réel (ex: "Téléphone")
+            }
+        });
     }
 
     @Override

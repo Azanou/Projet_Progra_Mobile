@@ -11,16 +11,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nomdesmembresdugroupe.data.CategoryAdapter;
 import com.example.nomdesmembresdugroupe.data.Product;
+import com.example.nomdesmembresdugroupe.fragment.TelephoneFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,6 +34,9 @@ import java.util.List;
 // contiendra notamment une barre de tache (Toolbar)
 
 public class DetailActivity extends AppCompatActivity {
+
+    // creation de variable action_home pour l'action
+    private MenuItem action_home;
 
     // pour gerer le l'ajout de produit
     private TextView badgeTextView;
@@ -45,14 +51,27 @@ public class DetailActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
 
-        List<String> categories = Arrays.asList(
-                "Tous", "Musique", "Podcasts", "Universités", "Rap français",
-                "Hackers", "Mix", "Intelligence artificielle", "Entrepreneuriat",
-                "En direct", "Musique africaine", "Programmation informatique", "Histoire"
+        List<Integer> categories = Arrays.asList(
+           R.string.Telephone, R.string.Accesiores_mobile,R.string.Appareils_audio,R.string.Batteries_externes,
+                R.string.Chargeurs
         );
         //on gere ici l'affichage de notre liste d'onglets dans le RecyclerView
         RecyclerView r = findViewById(R.id.category_recycler);
-        CategoryAdapter adapter = new CategoryAdapter(categories);
+
+        //ici, on creer l'adapter et les fragments associes a chaque categories
+        CategoryAdapter adapter = new CategoryAdapter(categories, categoryName -> {
+            Fragment SelectedFragment = null;
+
+            if (categoryName.equals("Telephone")) {
+                SelectedFragment = new TelephoneFragment();
+            }
+
+            if ( SelectedFragment != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, SelectedFragment)
+                        .commit();
+            }
+        });
         r.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         r.setAdapter(adapter);
 
@@ -97,6 +116,8 @@ public class DetailActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.detail_menu, menu);
 
         MenuItem menuItem = menu.findItem(R.id.action_cart);
+        MenuItem iconHome = menu.findItem(R.id.action_home);
+
         View actionView = menuItem.getActionView();
 
         if (actionView != null) { // Vérification ajoutée
@@ -104,6 +125,17 @@ public class DetailActivity extends AppCompatActivity {
             updateCartBadge();
         }
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        if (item.getItemId() == R.id.action_home) {
+            // Lancer MainActivity (la page d'accueil)
+          finish(); //  fermer DetailActivity et rentrer a l'activite preccedente
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //fonction pour gerer l'affichage du nombre de produit choisis
@@ -118,6 +150,5 @@ public class DetailActivity extends AppCompatActivity {
             badgeTextView.setVisibility(View.VISIBLE);
         }
     }
-
-
 }
+
