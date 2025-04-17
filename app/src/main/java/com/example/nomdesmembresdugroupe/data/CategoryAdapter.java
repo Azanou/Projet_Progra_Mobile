@@ -14,9 +14,9 @@ import com.example.nomdesmembresdugroupe.R;
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
-    List<String> categoryTab;
+    List<Integer> categoryTab;
 
-    public CategoryAdapter(List<String> cat){
+    public CategoryAdapter(List<Integer> cat){
         this.categoryTab = cat;
     }
     public static class MyViewHolder extends ViewHolder{
@@ -38,8 +38,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.MyViewHolder holder, int position) {
-        String category = this.categoryTab.get(position);
-        holder.category.setText(category.toString());
+        int category = this.categoryTab.get(position);
+        holder.category.setText(category);
     }
 
     @Override
