@@ -16,11 +16,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nomdesmembresdugroupe.data.CategoryAdapter;
 import com.example.nomdesmembresdugroupe.data.Product;
+import com.example.nomdesmembresdugroupe.fragment.TelephoneFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,7 +56,21 @@ public class DetailActivity extends AppCompatActivity {
         );
         //on gere ici l'affichage de notre liste d'onglets dans le RecyclerView
         RecyclerView r = findViewById(R.id.category_recycler);
-        CategoryAdapter adapter = new CategoryAdapter(categories);
+
+        //ici, on creer l'adapter et les fragments associes a chaque categories
+        CategoryAdapter adapter = new CategoryAdapter(categories, categoryName -> {
+            Fragment SelectedFragment = null;
+
+            if (categoryName.equals("Telephone")) {
+                SelectedFragment = new TelephoneFragment();
+            }
+
+            if ( SelectedFragment != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, SelectedFragment)
+                        .commit();
+            }
+        });
         r.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         r.setAdapter(adapter);
 
@@ -132,6 +148,5 @@ public class DetailActivity extends AppCompatActivity {
             badgeTextView.setVisibility(View.VISIBLE);
         }
     }
-
-
 }
+
