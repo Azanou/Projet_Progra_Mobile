@@ -95,17 +95,13 @@ public class DetailActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detail_menu, menu);
 
-        // Récupère l'item du menu
         MenuItem menuItem = menu.findItem(R.id.action_cart);
-
-        // Récupère la vue personnalisée de l'icône
         View actionView = menuItem.getActionView();
 
-        // Récupère la TextView du badge
-        if (actionView !=null)
+        if (actionView != null) { // Vérification ajoutée
             badgeTextView = actionView.findViewById(R.id.cart_badge);
-
-        updateCartBadge(); // initialise l'affichage du badge
+            updateCartBadge();
+        }
 
         return true;
     }
