@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/detail">
@@ -11,24 +10,28 @@
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        app:menu="@menu/detail_menu"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="Ma Boutique"
         app:titleTextColor="@android:color/white"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <!-- Catégories -->
+
+    <!-- Carte Produit -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_recycler"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingVertical="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/my_toolbar" />
 
-    <!-- Carte Produit -->
     <androidx.cardview.widget.CardView
         android:id="@+id/productCard"
         android:layout_width="0dp"
@@ -108,7 +111,9 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
+                    android:textAlignment="center"
                     android:text="+"
+                    android:textSize="25sp"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
                 <View
@@ -121,6 +126,8 @@
                     android:layout_height="48dp"
                     android:layout_weight="1"
                     android:text="-"
+                    android:textAlignment="center"
+                    android:textSize="30sp"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
             </LinearLayout>
         </LinearLayout>

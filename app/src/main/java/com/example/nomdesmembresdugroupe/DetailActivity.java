@@ -3,6 +3,8 @@ package com.example.nomdesmembresdugroupe;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +30,10 @@ import java.util.List;
 // contiendra notamment une barre de tache (Toolbar)
 
 public class DetailActivity extends AppCompatActivity {
+
+    // pour gerer le l'ajout de produit
+    private TextView badgeTextView;
+    private int cartItemCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +62,9 @@ public class DetailActivity extends AppCompatActivity {
                 descriptionProduit = findViewById(R.id.productDescription),
                 quantiteProduit = findViewById(R.id.productQuantity),
                 prixProduit = findViewById(R.id.productPrice);
-        //  Button add = findViewById(R.id.buttonAdd),
-        //        substract = findViewById(R.id.buttonSubstract);
+
+        Button add = findViewById(R.id.buttonAdd),
+                substract = findViewById(R.id.buttonSubstract);
 
         //on recupere nos donnees livres par l'intent
         Intent i = getIntent();
@@ -72,8 +79,9 @@ public class DetailActivity extends AppCompatActivity {
 
             }
         }
-
-
+        //gerons le comptage des produits sur le panier
+        add.setOnClickListener(v->{cartItemCount++; updateCartBadge();});
+        substract.setOnClickListener(v->{cartItemCount--;updateCartBadge();});
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.detail), (v, insets) -> {
@@ -86,7 +94,28 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detail_menu, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.action_cart);
+        View actionView = menuItem.getActionView();
+
+        if (actionView != null) { // Vérification ajoutée
+            badgeTextView = actionView.findViewById(R.id.cart_badge);
+            updateCartBadge();
+        }
         return true;
     }
+
+    //fonction pour gerer l'affichage du nombre de produit choisis
+    private void updateCartBadge() {
+        if (badgeTextView == null) return;
+
+        if (cartItemCount == 0) {
+            badgeTextView.setVisibility(View.GONE);
+        } else {
+            badgeTextView.setText(String.valueOf(cartItemCount));
+            badgeTextView.setVisibility(View.VISIBLE);
+        }
+    }
+
 
 }

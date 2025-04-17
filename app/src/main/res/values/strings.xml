@@ -39,5 +39,6 @@
     <string name="Casques">Casques</string>
     <string name="Batteries_externes">Batteries_externes</string>
     <string name="Chargeurs">Chargeurs</string>
+    <string name="panier">panier\n</string>
 
 </resources>
