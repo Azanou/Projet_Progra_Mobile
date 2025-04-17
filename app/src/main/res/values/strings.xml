@@ -34,11 +34,11 @@
         <string name="produit29">Écouteurs Anti-bruit</string>
      <string name="produit30">Lecteur de Carte SD</string>
       <string name="Telephone">Telephone</string>
-    <string name="Accesiores_mobile">Accesiores mobile</string>
-    <string name="Appareils_audio">Appareils mobile</string>
+    <string name="Accesiores_mobile">Accessoires mobiles</string>
+    <string name="Appareils_audio">Appareils audio</string>
     <string name="Casques">Casques</string>
     <string name="Batteries_externes">Batteries externes</string>
     <string name="Chargeurs">Chargeurs</string>
-    <string name="panier">panier\n</string>
+    <string name="panier">panier</string>
 
 </resources>

@@ -17,7 +17,6 @@ import java.util.List;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
     List<Integer> categoryTab;
     private  OnCategoryClickListener listener;
-    private Context context;
 
 
     //interface (on y fera un callback) pour gerer les clics sur les categories

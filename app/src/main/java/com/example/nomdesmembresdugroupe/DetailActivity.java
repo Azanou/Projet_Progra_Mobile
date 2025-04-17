@@ -9,10 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
@@ -24,9 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nomdesmembresdugroupe.data.CategoryAdapter;
 import com.example.nomdesmembresdugroupe.data.Product;
-import com.example.nomdesmembresdugroupe.fragment.TelephoneFragment;
+import com.example.nomdesmembresdugroupe.fragment.CategoryFragment;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,11 +34,11 @@ import java.util.List;
 public class DetailActivity extends AppCompatActivity {
 
     // creation de variable action_home pour l'action
-    private MenuItem action_home;
 
     // pour gerer le l'ajout de produit
     private TextView badgeTextView;
     private int cartItemCount = 0;
+    private boolean isOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,18 +56,46 @@ public class DetailActivity extends AppCompatActivity {
         //on gere ici l'affichage de notre liste d'onglets dans le RecyclerView
         RecyclerView r = findViewById(R.id.category_recycler);
 
+        //variable  pour gerer le fermeture du fragment
         //ici, on creer l'adapter et les fragments associes a chaque categories
+        boolean isOn = false;
+
         CategoryAdapter adapter = new CategoryAdapter(categories, categoryName -> {
             Fragment SelectedFragment = null;
 
-            if (categoryName.equals("Telephone")) {
-                SelectedFragment = new TelephoneFragment();
+            switch(categoryName){
+                case "Telephone":
+                    SelectedFragment = CategoryFragment.newInstance(categoryName);
+                    break;
+                case "Accessoires mobiles":
+                    SelectedFragment = CategoryFragment.newInstance(categoryName);
+                    break;
+                case "Appareils audio":
+                    SelectedFragment = CategoryFragment.newInstance(categoryName);
+                    break;
+                case "Batteries externes":
+                    SelectedFragment = CategoryFragment.newInstance(categoryName);
+                    break;
+                case "Casques":
+                    SelectedFragment = CategoryFragment.newInstance(categoryName);
+                    break;
+                case "Chargeurs" :
+                    SelectedFragment = CategoryFragment.newInstance(categoryName);
+                    break;
             }
 
-            if ( SelectedFragment != null) {
+
+
+            if ( SelectedFragment != null && this.isOn == false) {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, SelectedFragment)
                         .commit();
+                findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
+                Log.d("FRAGMENT", "Fragment affiché !");
+                this.isOn = true;
+            }else{
+                findViewById(R.id.fragment_container).setVisibility(View.INVISIBLE);
+                this.isOn = false;
             }
         });
         r.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -119,7 +144,6 @@ public class DetailActivity extends AppCompatActivity {
 
 
         MenuItem menuItem = menu.findItem(R.id.action_cart);
-        MenuItem iconHome = menu.findItem(R.id.action_home);
 
         View actionView = menuItem.getActionView();
 
@@ -149,7 +173,6 @@ public class DetailActivity extends AppCompatActivity {
             badgeTextView.setVisibility(View.GONE);
         } else {
             badgeTextView.setText(String.valueOf(cartItemCount));
-            Toast.makeText(DetailActivity.this, "walla", Toast.LENGTH_SHORT);
             badgeTextView.setVisibility(View.VISIBLE);
         }
     }

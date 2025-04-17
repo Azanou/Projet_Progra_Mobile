@@ -12,7 +12,7 @@
     <!-- Bouton Panier avec badge -->
     <item
         android:id="@+id/action_cart"
-        android:actionLayout="@layout/card_badge"
+        app:actionLayout="@layout/card_badge"
         android:title="Panier"
         app:showAsAction="always" />
 </menu>
