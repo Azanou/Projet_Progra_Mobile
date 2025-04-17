@@ -16,7 +16,7 @@ public class Product implements Serializable {
         private int nomImage;
     @StringRes
         private int description;
-    @StringRes
+//    @StringRes
         private int quantite;
         private double prixUnitaire;
     @StringRes
