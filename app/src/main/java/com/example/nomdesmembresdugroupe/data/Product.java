@@ -19,8 +19,6 @@ public class Product implements Serializable {
     @StringRes
         private int quantite;
         private double prixUnitaire;
-        @StringRes
-        private int categorie;
 
 
 
@@ -29,14 +27,12 @@ public class Product implements Serializable {
 
 
 
-
-        public Product(int image, int nomImage, int description, int quantite, double prixUnitaire, int categorie) {
+        public Product(int image, int nomImage, int description, int quantite, double prixUnitaire) {
             this.image = image;
             this.nomImage = nomImage;
             this.description = description;
             this.quantite = quantite;
             this.prixUnitaire = prixUnitaire;
-            this.categorie = categorie;
         }
 
         public int getImage() {

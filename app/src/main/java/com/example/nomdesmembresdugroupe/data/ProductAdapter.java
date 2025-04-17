@@ -1,14 +1,19 @@
 package com.example.nomdesmembresdugroupe.data;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.nomdesmembresdugroupe.DetailActivity;
+import com.example.nomdesmembresdugroupe.MainActivity;
 import com.example.nomdesmembresdugroupe.R;
 
 import java.util.List;
@@ -53,6 +58,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         holder.description.setText(itemElement.getDescription());
         holder.unitPrice.setText(String.valueOf(itemElement.getPrixUnitaire()));
         holder.numberOfItem.setText(String.valueOf(itemElement.getQuantite()));
+
+        holder.image.setOnClickListener(v -> {
+            Context C = v.getContext();
+            Intent i = new Intent(C, DetailActivity.class);
+            // Toast.makeText( v.getContext(), "on m'a clicke", Toast.LENGTH_SHORT).show();
+            i.putExtra("produit", itemElement);
+            C.startActivity(i);
+        });
     }
 
     @Override
