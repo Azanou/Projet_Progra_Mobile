@@ -32,6 +32,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_toolbar" />
 
+    <!-- le fragment  !-->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"/>
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/productCard"
         android:layout_width="0dp"
