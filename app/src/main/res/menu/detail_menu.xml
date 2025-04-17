@@ -14,5 +14,5 @@
         android:id="@+id/action_cart"
         android:actionLayout="@layout/card_badge"
         android:title="Panier"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 </menu>

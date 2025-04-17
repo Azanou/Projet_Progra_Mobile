@@ -2,6 +2,7 @@ package com.example.nomdesmembresdugroupe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -113,7 +114,9 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.detail_menu, menu);
+
 
         MenuItem menuItem = menu.findItem(R.id.action_cart);
         MenuItem iconHome = menu.findItem(R.id.action_home);
