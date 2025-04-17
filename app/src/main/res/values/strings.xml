@@ -33,4 +33,5 @@
         <string name="produit28">Glacière Portable</string>
         <string name="produit29">Écouteurs Anti-bruit</string>
         <string name="produit30">Lecteur de Carte SD</string>
+    <string name="panier">Panier</string>
 </resources>
