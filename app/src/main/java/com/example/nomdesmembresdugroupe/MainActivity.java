@@ -1,7 +1,10 @@
+// MainActivity.java
 package com.example.nomdesmembresdugroupe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,11 +28,21 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ProductAdapter adapter;
+    private SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "CartState"; // Le même nom que dans DetailActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+
+        // **Réinitialisation de l'état du panier AU TOUT DÉBUT de onCreate()**
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear(); // Efface toutes les préférences liées au panier
+        editor.apply();
+        Log.d("MainActivity", "État du panier réinitialisé au démarrage de l'application.");
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
