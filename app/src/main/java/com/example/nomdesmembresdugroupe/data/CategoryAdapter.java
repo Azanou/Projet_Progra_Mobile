@@ -1,6 +1,7 @@
 package com.example.nomdesmembresdugroupe.data;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
     List<Integer> categoryTab;
+    private int selectedPosition = RecyclerView.NO_POSITION;
     private  OnCategoryClickListener listener;
 
 
@@ -52,7 +54,23 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
         holder.category.setText(category);
 
+        // Mise à jour du style selon la sélection
+        if (position == selectedPosition) {
+            holder.category.setBackgroundResource(R.drawable.bg_selected);
+            holder.category.setTextColor(Color.WHITE);
+        } else {
+            holder.category.setBackgroundResource(R.drawable.bg_unselected);
+            holder.category.setTextColor(Color.BLACK);
+        }
+
         holder.itemView.setOnClickListener(v -> {
+
+            int previousPosition = selectedPosition;
+            selectedPosition = position;
+
+            notifyItemChanged(previousPosition);
+            notifyItemChanged(selectedPosition);
+
             if (listener != null) {
                 listener.onCategoryClick(categoryText); // ← ici on envoie le texte réel (ex: "Téléphone")
             }

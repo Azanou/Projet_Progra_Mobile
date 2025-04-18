@@ -5,10 +5,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nomdesmembresdugroupe.R;
+import com.example.nomdesmembresdugroupe.data.CategoryProductAdapter;
+import com.example.nomdesmembresdugroupe.data.Product;
+import com.example.nomdesmembresdugroupe.data.ProductAdapter;
+import com.example.nomdesmembresdugroupe.data.ProductData;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryFragment extends Fragment {
 
@@ -32,25 +43,30 @@ public class CategoryFragment extends Fragment {
         if (getArguments() != null) {
             category = getArguments().getString("category");
         }
+        View view = inflater.inflate(R.layout.fragment_category, container, false);
 
+        RecyclerView categoryList = view.findViewById(R.id.categoryList);
+        categoryList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Lier à un layout XML
-        switch (category){
-            case "Telephone":
-                return inflater.inflate(R.layout.fragment_telephone, container, false);
-            case "Accessoires mobiles":
-                return inflater.inflate(R.layout.fragment_accesmo, container, false);
-            case "Appareils audio":
-                return inflater.inflate(R.layout.fragment_audio, container, false);
-            case "Batteries externes":
-                return inflater.inflate(R.layout.fragment_batext, container, false);
-            case "Casques":
-                return inflater.inflate(R.layout.fragment_casque, container, false);
-            case "Chargeurs" :
-                return inflater.inflate(R.layout.fragment_chargeur, container, false);
-            default:
-                return inflater.inflate(R.layout.fragment_telephone, container, false);
-        }
+        List<Product> categoryProducts = getProductByCategory(category);
+
+        CategoryProductAdapter categoryProductsAdapter = new CategoryProductAdapter(categoryProducts);
+        categoryList.setAdapter(categoryProductsAdapter);
+
+        return view;
     }
+
+    private List<Product> getProductByCategory(String categoryName){
+        List<Product> allProduct = ProductData.getProducts();
+        List<Product> result = new ArrayList<>();
+
+        for(Product p : allProduct){
+            String productCategory = getContext().getString(p.categorie);
+            if(productCategory.equals(categoryName))
+                result.add(p);
+        }
+        return result;
+    }
+
 }
 
