@@ -22,9 +22,9 @@
         android:layout_height="84dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="Yo Mola vas y connectes-toi !"
+        android:text="Vas y connectes-toi !"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="27dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +56,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/edit_background"
             android:ems="10"
-            android:hint=" Enter ton Name mola"
+            android:hint=" Entre ton nom"
             android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/cardview_dark_background"
@@ -80,7 +80,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/edit_background"
             android:ems="10"
-            android:hint=" Enter ton password mola"
+            android:hint=" entre ton password"
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="@color/cardview_dark_background"
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Ne forget pas ton password mola"
+            android:text="N'oublie pas ton mot de passe"
             android:textAlignment="center" />
 
 
