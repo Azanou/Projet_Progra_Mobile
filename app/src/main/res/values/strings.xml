@@ -3,22 +3,22 @@
     <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</string>
         <string name="descript">Description: </string>
         <string name="pu">Prix unitaire: </string>
-        <string name="produit1">Stylo Ergonomique</string>
-        <string name="produit2">Clé USB 128Go</string>
-        <string name="produit3">Sac à dos Voyage</string>
-        <string name="produit4">Casque Sans Fil</string>
-        <string name="produit5">Montre Connectée</string>
-        <string name="produit6">Tasse Isotherme</string>
-        <string name="produit7">Chargeur Sans Fil</string>
-        <string name="produit8">Lampe LED Réglable</string>
-        <string name="produit9">Batterie Externe</string>
-        <string name="produit10">Câble HDMI 4K</string>
-        <string name="produit11">Tablette Graphique</string>
-        <string name="produit12">Support Ordinateur Portable</string>
-        <string name="produit13">Haut-Parleur Bluetooth</string>
-        <string name="produit14">Pochette de Voyage</string>
-        <string name="produit15">Tapis de Souris Gaming</string>
-        <string name="produit16">Clé de Sécurité USB</string>
+        <string name="produit1">Honor</string>
+        <string name="produit2">Google Pixel</string>
+        <string name="produit3">HMD 280</string>
+        <string name="produit4">Montre Connectée</string>
+        <string name="produit5">veilleuse Connectée</string>
+        <string name="produit6">Casque gamers</string>
+        <string name="produit7">ecouteurs wireless</string>
+        <string name="produit8">woufers</string>
+        <string name="produit9">Radio 100</string>
+    <string name="produit10">Power 10 -A</string>
+        <string name="produit11">Samsung x-Bat</string>
+        <string name="produit12">power 10-E</string>
+        <string name="produit13">HP Probook VisiO</string>
+        <string name="produit14">Macbook</string>
+        <string name="produit15">Macbook</string>
+        <string name="produit16">MSI ReyZen</string>
         <string name="produit17">Téléphone Portable</string>
         <string name="produit18">Sac à Main en Cuir</string>
         <string name="produit19">Kit de Nettoyage pour Écran</string>
@@ -38,7 +38,7 @@
     <string name="Appareils_audio">Appareils audio</string>
     <string name="Casques">Casques</string>
     <string name="Batteries_externes">Batteries externes</string>
-    <string name="Chargeurs">Chargeurs</string>
+    <string name="pc">Ordinateurs</string>
     <string name="panier">panier</string>
 
 </resources>

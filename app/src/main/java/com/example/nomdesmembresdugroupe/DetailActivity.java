@@ -54,7 +54,7 @@ public class DetailActivity extends AppCompatActivity {
 
         List<Integer> categories = Arrays.asList(
            R.string.Telephone, R.string.Accesiores_mobile,R.string.Appareils_audio,R.string.Batteries_externes,
-                R.string.Chargeurs
+                R.string.pc
         );
         //on gere ici l'affichage de notre liste d'onglets dans le RecyclerView
         RecyclerView r = findViewById(R.id.category_recycler);
@@ -82,7 +82,7 @@ public class DetailActivity extends AppCompatActivity {
                 case "Casques":
                     SelectedFragment = CategoryFragment.newInstance(categoryName);
                     break;
-                case "Chargeurs" :
+                case "Ordinateurs" :
                     SelectedFragment = CategoryFragment.newInstance(categoryName);
                     break;
             }
@@ -162,13 +162,14 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getItemId() == R.id.action_home) {
-            // Lancer MainActivity (la page d'accueil)
-          finish(); //  fermer DetailActivity et rentrer a l'activite preccedente
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
+
 
     //fonction pour gerer l'affichage du nombre de produit choisis
     private void updateCartBadge() {
